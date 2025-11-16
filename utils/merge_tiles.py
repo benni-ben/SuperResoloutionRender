@@ -162,7 +162,7 @@ def do_merge_tiles(context: Context, tiles: List[MergeTile]) -> None:
 
     final_image = bpy.data.images.new(final_image_name, alpha=True, float_buffer=True, width=res_x, height=res_y)
     final_image.alpha_mode = 'STRAIGHT'
-    final_image.colorspace_settings.name = 'Linear'
+    final_image.colorspace_settings.name = 'sRGB'
     final_image.generated_type = 'BLANK'
     final_image.filepath_raw = final_image_filepath
     final_image.file_format = render.image_settings.file_format
@@ -181,3 +181,4 @@ def do_merge_tiles(context: Context, tiles: List[MergeTile]) -> None:
     bpy.data.images.remove(final_image)
     final_image = None
     gc.collect()
+
